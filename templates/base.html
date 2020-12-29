@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>V LIST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <div class="container nav-wrapper"> <!--2 classes-->
+        <a href="/" class="brand-logo">V List</a> <!--write vlist with href of home-->
+        <ul id="nav-mobile" class="right"><!-- on mobile move it right and w home-->
+            <li><a href="/">Home</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 style="text-align: center">¿Qué quieres buscar en V List?</h1>
+    <div class="row"><!-- 1 row ocn 3 cols de icons-->
+        <div class="col s4"> <!--small device 4 so 3 in total up to 12-->
+            <!-- Promo Content 1 goes here -->
+            <div class="center"> <!-- iconos de MATERIALIZE ICONS CON link2-->
+            <i class="large material-icons" style="color: #EE6E73">flash_on</i><!--rosa-->
+            <p>Rápido buscador web craigslist</p>
+            <p class="light center">Encuentra con un hermoso GUI.</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <!-- Promo Content 2 goes here -->
+            <div class="center">
+                <i class="large material-icons" style="color: orange">camera</i>
+                <p>Filtra tus busquedas</p>
+                <p class="light center">Construimos una función para filtrar por precios.</p>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <!-- Promo Content 3 goes here -->
+            <div class="center">
+                <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
+                <p>Front-end más sexy que Craigslist</p>
+                <p class="light center">Creado con ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <form action="{% url 'new_search' %}" method="post"><!--go - newsearch forms r post-->
+        {% csrf_token %}
+            <input type="text" name="search" placeholder="search"><!--placeh is msj clarito-->
+            <!--MATERIALIZEBUTTONS-->
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i><!--MATERIALIZE BUTTONS-->
+            </button><!--send or flash_on or whateva icon not random text-->
+    </form>
+    <!--DRY for extended versions-->
+    {% block content %}
+
+    {% endblock content %}
+    <p></p>
+    <p></p>
+</div>
+
+<!--MATERIALIZE JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.card{
+    height: 400px;
+    overflow: hidden;
+}
+
+.card-image{
+    height: 250px;
+    overflow: hidden;
+}
+
+@media all and (max-width:500px){
+    h2{
+        font-size: 1em;
+    }
+}
